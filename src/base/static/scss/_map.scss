@@ -306,6 +306,7 @@
 
 .leaflet-draw-tooltip {
     display: none;
+<<<<<<< fc83b6fa366429bb40d188a30a54ec5849e7ce32
 }/* Custom cluster icons */
 .cluster-subgroup-container {
     position: absolute;
@@ -340,5 +341,74 @@
     &.top-right {
         top: -10px;
         left: 12px;
+    }
+}
+
+/* layer info popup windows */
+#layer-info-window-container {
+    position: absolute;
+    padding: 10px;
+    font-size: 0.8em;
+    height: auto;
+    width: 200px;
+    background-color: #FFF;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+    border-radius: 3px;
+    z-index: 3000;
+
+    .layer-info-window-content {
+        overflow: auto;
+        max-height: 200px;
+
+        .info-window-header {
+            background-color: #FFF;
+            position: fixed;
+            width: 200px;
+
+            .info-window-close-btn {
+                float: right;
+                color: #ff5e99;
+
+                &:hover {
+                    cursor: pointer;
+                    color: #cd2c67;                
+                }
+            }
+
+            .info-window-title {
+                font-weight: 800;
+            }
+
+            hr {
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+        }
+
+        .info-window-body {
+            margin-top: 30px;
+        }  
+    }
+
+    .caret-left {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        overflow: hidden;
+        box-shadow: 0 16px 10px -17px rgba(0, 0, 0, 0.5);
+        left: -24px;
+        top: calc(50% - 12px);
+
+        &:after {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #FFF;
+            transform: rotate(45deg);
+            top: 6px;
+            left: 18px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+        }
     }
 }
