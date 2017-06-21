@@ -192,6 +192,12 @@ Adapted from http://littlesnippets.net/snip1579/
 -------------------------------------------------------------- */
 /* iphone 4 (320 x 480)*/
 
+@media only screen and (min-width: 60em) {
+  #main-btns-container {
+    display: none !important;
+  }
+}
+
 @media only screen and (max-width: 60em) {
   #site-header {
     background: none;
