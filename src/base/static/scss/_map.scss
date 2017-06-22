@@ -350,7 +350,7 @@
     position: absolute;
     padding: 10px;
     font-size: 0.8em;
-    height: auto;
+    max-height: 200px;
     width: 200px;
     background-color: #FFF;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
@@ -358,12 +358,9 @@
     z-index: 3000;
 
     .layer-info-window-content {
-        overflow: auto;
-        max-height: 200px;
 
         .info-window-header {
             background-color: #FFF;
-            position: fixed;
             width: 200px;
 
             .info-window-close-btn {
@@ -386,9 +383,10 @@
             }
         }
 
-        .info-window-body {
-            margin-top: 30px;
-        }  
+        .info-window-body-container {
+            max-height: 175px;
+            overflow: auto;
+        }
     }
 
     .caret-left {
