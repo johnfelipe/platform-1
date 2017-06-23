@@ -60,12 +60,25 @@ Shareabouts.smallSpinnerOptions = {
 module.exports = Backbone.View.extend({
   events: {
     "click #add-place": "onClickAddPlaceBtn",
+    "click #compare-btn-container": "onClickCompareLayers",
     "click .close-btn": "onClickClosePanelBtn",
     "click .maximize-btn": "onClickMaximizeBtn",
     "click .minimize-btn": "onClickMinimizeBtn",
     "click .collapse-btn": "onToggleSidebarVisibility",
     "click .list-toggle-btn": "toggleListView",
   },
+
+  onClickCompareLayers: function() {
+
+    var myLayer1 = this.mapView.layers["satellite"].addTo(this.mapView.map);
+     
+    var myLayer2 = this.mapView.layers["1936aerial"].addTo(this.mapView.map)
+     
+    L.Control.sideBySide(myLayer1, myLayer2).addTo(this.mapView.map);
+
+  },
+
+
   initialize: function() {
     // store promises returned from collection fetches
     Shareabouts.deferredCollections = [];
