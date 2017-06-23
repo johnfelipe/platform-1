@@ -135,6 +135,7 @@
         <div id="sidebar-container"></div>
       {% endif %}
 
+      <div id="layer-info-window-container" class="is-hidden"></div>
     </div>
 
     <div id="content"><!-- .place or .page -->
@@ -178,7 +179,7 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js"></script>
   {% endif %}
   {% if config.cluster %}
-  <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.5.0/leaflet.markercluster.js"></script>
   {% endif %}
 
   {% if settings.MAPBOX_TOKEN %}
@@ -314,7 +315,8 @@
       leaflet_sidebar: {{ config.leaflet_sidebar|as_json }},
       pages:           {{ pages_config_json|safe }},
       story:           {{ config.story|as_json }},
-      rightSidebar:    {{ config.right_sidebar|as_json }} 
+      rightSidebar:    {{ config.right_sidebar|as_json }},
+      filters:          {{ config.filters|as_json }}
     };
     $(function() {
       // Ready set go!
@@ -333,7 +335,8 @@
         mapConfig: S.Config.map,
         storyConfig: S.Config.story,
         activityConfig: S.Config.activity,
-        pagesConfig: S.Config.pages
+        pagesConfig: S.Config.pages,
+        filters: S.Config.filters
       });
     });
   }(Shareabouts, jQuery));

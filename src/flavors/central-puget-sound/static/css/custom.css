@@ -19,6 +19,11 @@
   margin-right: 50px;
 }
 
+#filter-menu-bar .filter-img:before {
+  font-family: "Permanent Marker", cursive !important;
+}
+
+
 /* =Header
 -------------------------------------------------------------- */
 @media only screen and (min-width: 60em) {
@@ -42,6 +47,41 @@
   .content-expanded-mid #main-btns-container {
     display: none !important;
   }
+}
+
+/* =Header bar add report button
+-------------------------------------------------------------- */
+#pages-nav-container {
+  width: calc(100% - 425px);
+}
+
+#pages-nav-right-container {
+  height: 100%;
+  float: right;
+}
+
+.add-place-nav {
+  float: left;
+  font-size: 0.875em;
+}
+
+#add-place:hover {
+  background-color: rgba(208, 71, 22, 0.89);
+}
+
+#main-btns-container {
+  display: none;
+}
+
+.list-toggle-nav {
+  padding: 0.2em 0.75em;
+  float: right;
+}
+
+/* =Language picker
+-------------------------------------------------------------- */
+#language-picker {
+  display: none;
 }
 
 /* =Custom pledge type icons
@@ -72,27 +112,12 @@
   font-size: 0.9em;
 }
 
-/* =Leaflet sidebar overrides
+
+/* =Map
 -------------------------------------------------------------- */
-.map-legend-grouping-checkbox {
-  -ms-transform: scale(1.4); /* IE */
-  -moz-transform: scale(1.4); /* FF */
-  -webkit-transform: scale(1.4); /* Safari and Chrome */
-  -o-transform: scale(1.4); /* Opera */
-  transform: scale(1.4);
+#map {
+  background: #777;
 }
-
-.layer-type-grouping-title, .map-legend-grouping-checkbox + label {
-  font-size: 1.1em;
-  font-weight: bold;
-  vertical-align: middle;
-  padding-left: 8px;
-}
-
-.map-legend-basemap-radio + label, .map-legend-checkbox + label {
-  font-size: 1.1em;
-}
-
 
 /* =Grid-based layout on about page
 Adapted from http://littlesnippets.net/snip1579/
@@ -167,6 +192,12 @@ Adapted from http://littlesnippets.net/snip1579/
 -------------------------------------------------------------- */
 /* iphone 4 (320 x 480)*/
 
+@media only screen and (min-width: 60em) {
+  #main-btns-container {
+    display: none !important;
+  }
+}
+
 @media only screen and (max-width: 60em) {
   #site-header {
     background: none;
@@ -204,6 +235,26 @@ Adapted from http://littlesnippets.net/snip1579/
   #site-title a:visited {
     background-size: 180px auto;
     margin-top: 5px;
+  }
+
+  #pages-nav-container {
+    width: 100%;
+  }
+
+  #pages-nav-right-container {
+    width: 100%;
+  }
+
+  .menu-item {
+    padding-bottom: 0 !important;
+  }
+
+  .add-place-nav {
+    display: none;
+  }
+
+  #main-btns-container {
+    display: table;
   }
 }
 

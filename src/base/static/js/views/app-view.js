@@ -1,60 +1,37 @@
-var Util = require("../utils.js");
+var Util = require('../utils.js');
 
 // Views
-var MapView = require("mapseed-map-view");
-var PagesNavView = require("mapseed-pages-nav-view");
-var AuthNavView = require("mapseed-auth-nav-view");
-var LandmarkDetailView = require("mapseed-landmark-detail-view");
-var PlaceListView = require("mapseed-place-list-view");
-var SidebarView = require("mapseed-sidebar-view");
-var ActivityView = require("mapseed-activity-view");
-var GeocodeAddressView = require("mapseed-geocode-address-view");
-var PlaceCounterView = require("mapseed-place-counter-view");
-var PlaceDetailView = require("mapseed-place-detail-view");
-var PlaceFormView = require("mapseed-place-form-view");
-var RightSidebarView = require("mapseed-right-sidebar-view");
+var MapView = require('mapseed-map-view');
+var PagesNavView = require('mapseed-pages-nav-view');
+var AuthNavView = require('mapseed-auth-nav-view');
+var LandmarkDetailView = require('mapseed-landmark-detail-view');
+var PlaceListView = require('mapseed-place-list-view');
+var SidebarView = require('mapseed-sidebar-view');
+var ActivityView = require('mapseed-activity-view');
+var GeocodeAddressView = require('mapseed-geocode-address-view');
+var PlaceCounterView = require('mapseed-place-counter-view');
+var PlaceDetailView = require('mapseed-place-detail-view');
+var PlaceFormView = require('mapseed-place-form-view');
+var RightSidebarView = require('mapseed-right-sidebar-view');
+var FilterMenuView = require('mapseed-filter-menu-view');
 
 // Models
-var PlaceModel = require("../models/place-model.js");
-var LandmarkModel = require("../models/landmark-model.js");
+var PlaceModel = require('../models/place-model.js');
+var LandmarkModel = require('../models/landmark-model.js');
 
 // Spinner options -- these need to be own modules
 Shareabouts.bigSpinnerOptions = {
-  lines: 13,
-  length: 0,
-  width: 10,
-  radius: 30,
-  corners: 1,
-  rotate: 0,
-  direction: 1,
-  color: "#000",
-  speed: 1,
-  trail: 60,
-  shadow: false,
-  hwaccel: false,
-  className: "spinner",
-  zIndex: 2e9,
-  top: "auto",
-  left: "auto",
+  lines: 13, length: 0, width: 10, radius: 30, corners: 1, rotate: 0,
+  direction: 1, color: '#000', speed: 1, trail: 60, shadow: false,
+  hwaccel: false, className: 'spinner', zIndex: 2e9, top: 'auto',
+  left: 'auto'
 };
 
 Shareabouts.smallSpinnerOptions = {
-  lines: 13,
-  length: 0,
-  width: 3,
-  radius: 10,
-  corners: 1,
-  rotate: 0,
-  direction: 1,
-  color: "#000",
-  speed: 1,
-  trail: 60,
-  shadow: false,
-  hwaccel: false,
-  className: "spinner",
-  zIndex: 2e9,
-  top: "auto",
-  left: "auto",
+  lines: 13, length: 0, width: 3, radius: 10, corners: 1, rotate: 0,
+  direction: 1, color: '#000', speed: 1, trail: 60, shadow: false,
+  hwaccel: false, className: 'spinner', zIndex: 2e9, top: 'auto',
+  left: 'auto'
 };
 
 module.exports = Backbone.View.extend({
@@ -84,13 +61,30 @@ module.exports = Backbone.View.extend({
     Shareabouts.deferredCollections = [];
 
     var self = this,
-      // Only include submissions if the list view is enabled (anything but false)
-      includeSubmissions = Shareabouts.Config.flavor.app.list_enabled !== false,
-      placeParams = {
-        // NOTE: this is to simply support the list view. It won't
-        // scale well, so let's think about a better solution.
-        include_submissions: includeSubmissions,
-      };
+        // Only include submissions if the list view is enabled (anything but false)
+        includeSubmissions = Shareabouts.Config.flavor.app.list_enabled !== false,
+        placeParams = {
+          // NOTE: this is to simply support the list view. It won't
+          // scale well, so let's think about a better solution.
+          include_submissions: includeSubmissions
+        };
+
+    // Use the page size as dictated by the server by default, unless
+    // directed to do otherwise in the configuration.
+    if (Shareabouts.Config.flavor.app.places_page_size) {
+      placeParams.page_size = Shareabouts.Config.flavor.app.places_page_size;
+    }
+
+    // Boodstrapped data from the page
+    this.activities = this.options.activities;
+    this.places = this.options.places;
+    this.landmarks = this.options.landmarks;
+
+    // Caches of the views (one per place)
+    this.placeFormView = null;
+    this.placeDetailViews = {};
+    this.landmarkDetailViews = {};
+    this.activeDetailView;
 
     // Use the page size as dictated by the server by default, unless
     // directed to do otherwise in the configuration.
@@ -223,6 +217,7 @@ module.exports = Backbone.View.extend({
       placeTypes: this.options.placeTypes,
       cluster: this.options.cluster,
       placeDetailViews: this.placeDetailViews,
+      placeConfig: this.options.placeConfig
     });
 
     if (self.options.sidebarConfig.enabled) {
@@ -230,6 +225,7 @@ module.exports = Backbone.View.extend({
         el: "#sidebar-container",
         mapView: this.mapView,
         sidebarConfig: this.options.sidebarConfig,
+        placeConfig: this.options.placeConfig
       }).render();
     }
 
@@ -244,6 +240,8 @@ module.exports = Backbone.View.extend({
         el: "ul.recent-points",
         activities: this.activities,
         places: this.places,
+        landmarks: this.landmarks,
+        placeConfig: this.options.placeConfig,
         router: this.options.router,
         placeTypes: this.options.placeTypes,
         surveyConfig: this.options.surveyConfig,

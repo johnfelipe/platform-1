@@ -295,48 +295,45 @@ module.exports = Backbone.View.extend({
     this.map.setView(latLng, this.options.mapConfig.options.maxZoom || 17);
   },
 
-  filter: function(locationType) {
-    var self = this;
-    this.locationTypeFilter = locationType;
+  filter: function(locationTypeModel, mapWasUnfiltered, mapWillBeUnfiltered) {
+    let locationType = locationTypeModel.get("locationType"),
+        isActive = locationTypeModel.get("active");
 
-    _.each(this.places, function(collection, collectionId) {
-      collection.each(function(model) {
-        var modelLocationType = model.get("location_type");
+    if (mapWasUnfiltered || mapWillBeUnfiltered) {
+      for (let collectionId in this.places) {
+        this.places[collectionId]
+          .filter((model) => {
+            return model.get("location_type") !== locationType;
+          })
+          .forEach((model) => {
+            if (mapWasUnfiltered) {
+              this.layerViews[collectionId][model.cid].filter();
+            } else if (mapWillBeUnfiltered) {
+              this.layerViews[collectionId][model.cid].unfilter();
+            }
+          });
+      }
+    } else {
+      for (let collectionId in this.places) {
+        this.places[collectionId]
+          .where({location_type: locationType})
+          .forEach((model) => {
+            (isActive) ?
+              this.layerViews[collectionId][model.cid].unfilter() :
+              this.layerViews[collectionId][model.cid].filter();
+          });
+      }
+    }
 
-        if (
-          modelLocationType &&
-          modelLocationType.toUpperCase() === locationType.toUpperCase()
-        ) {
-          self.layerViews[collectionId][model.cid].show();
-        } else {
-          self.layerViews[collectionId][model.cid].hide();
-        }
-      });
-    });
-
-    _.each(this.landmarks, function(collection, collectionId) {
-      collection.each(function(model) {
-        var modelLocationType = model.get("location_type");
-
-        if (
-          modelLocationType &&
-          modelLocationType.toUpperCase() === locationType.toUpperCase()
-        ) {
-          self.layerViews[collectionId][model.id].show();
-        } else {
-          self.layerViews[collectionId][model.id].hide();
-        }
-      });
-    });
+    // TODO: filtering for landmarks also?
   },
+
   clearFilter: function(collectionId) {
     var self = this;
     this.locationTypeFilter = null;
     _.each(this.places, function(collection) {
       collection.each(function(model) {
-        if (self.layerViews[model.cid]) {
-          self.layerViews[model.cid].render();
-        }
+        if (self.layerViews[model.cid]) { self.layerViews[model.cid].render(); }
       });
     });
 
@@ -348,32 +345,15 @@ module.exports = Backbone.View.extend({
       });
     });
   },
+
   getLayerGroups: function() {
-    var self = this;
-    var clusterOptions = self.options.cluster;
-    if (!clusterOptions) {
+    if (!this.options.cluster) {
       return L.layerGroup();
     } else {
-      return L.markerClusterGroup({
-        iconCreateFunction: function(cluster) {
-          var markers = cluster.getAllChildMarkers();
-          var n = markers.length;
-          var small = n < clusterOptions.threshold;
-          var className = small
-            ? clusterOptions.class_small
-            : clusterOptions.class_large;
-          var size = small
-            ? clusterOptions.size_small
-            : clusterOptions.size_large;
-          return L.divIcon({
-            html: n,
-            className: className,
-            iconSize: [size, size],
-          });
-        },
-      });
+      return L.markerClusterGroup(this.options.cluster);
     }
   },
+
   createLayerFromConfig: function(config) {
     var self = this,
       layer,
