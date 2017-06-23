@@ -74,7 +74,7 @@ module.exports = Backbone.View.extend({
      
     var myLayer2 = this.mapView.layers["1936aerial"].addTo(this.mapView.map)
      
-    L.Control.sideBySide(myLayer1, myLayer2).addTo(this.mapView.map);
+    L.control.sideBySide(myLayer2, myLayer1).addTo(this.mapView.map);
 
   },
 
