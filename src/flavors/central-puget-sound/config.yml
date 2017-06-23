@@ -79,6 +79,29 @@ map:
     #   transparent: false
     #   format: image/png
 
+
+    - id: 1936aerial
+      type: wmts
+      url: http://gismaps.kingcounty.gov/arcgis/rest/services/BaseMaps/KingCo_Aerial_1936/MapServer/WMTS?
+      layers: BaseMaps_KingCo_Aerial_1936
+      tilematrixSet: default028mm
+      version: 1.0.0
+      transparent: false
+      format: image/jpg
+
+    - id: municipal
+      type: json
+      url: https://data.seattle.gov/resource/uwqp-6qu8.json
+      rules:
+        - condition: '"{{properties.type}}" === " "'
+          style:
+            color: "#FF0000"
+            opacity: 0.9
+
+    - id: sewers
+      type: esri-feature
+      url: "http://gismaps.kingcounty.gov/arcgis/rest/services/Wastewater/KC_SewerData/MapServer/1"
+
     # WMS hydrography
     - id: hydrography
       url: https://basemap.nationalmap.gov/arcgis/services/USGSHydroCached/MapServer/WMSServer?
@@ -737,6 +760,10 @@ sidebar:
         - id: blank
           title: _(No basemap)
           visibleDefault: false
+        - id: 1936aerial
+          title: _(1936 Aerial)
+          visibleDefault: false
+
       groupings:
         - id: grp-human-boundaries
           title: _(Human Boundaries)
@@ -786,6 +813,14 @@ sidebar:
 
             - id: cso
               title: _(Sewer Overflow)
+              visibleDefault: false
+
+            - id: sewers
+              title: _(Sewers)
+              visibleDefault: false
+
+            - id: municipal
+              title: _(Municipal)
               visibleDefault: false
 
         - id: grp-land

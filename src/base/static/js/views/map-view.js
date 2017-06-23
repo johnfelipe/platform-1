@@ -389,6 +389,8 @@ module.exports = Backbone.View.extend({
       }
       layer = L.argo(url, config);
       self.layers[config.id] = layer;
+
+      console.log(self.layers[config.id]);
     } else if (config.type && config.type === "kml") {
       $.ajax(config.url).done(function(xml) {
         layer = L.argo(toGeoJSON.kml(xml), config);

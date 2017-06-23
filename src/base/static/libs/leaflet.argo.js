@@ -15,7 +15,49 @@ L.Argo = L.GeoJSON.extend({
     });
 
     var successHandler = L.Util.bind(function(geojson) {
-          this.addData(geojson);
+
+          var featureCollection = {
+            type: 'FeatureCollection',
+            features: []
+          }
+
+          geojson.forEach(function(d) {
+            var shape = d.shape;
+
+            if(shape.geometry.paths) {
+
+              var g = {
+                type: 'LineString',
+                coordinates: shape.geometry.paths[0]
+              }
+
+              var feature = {
+                type: 'Feature',
+                properties: d,
+                geometry: g
+              }
+
+              featureCollection.features.push(feature);
+            } else if (shape.geometry.rings) {
+              var g = {
+                type: 'Polygon',
+                coordinates: shape.geometry.rings
+              }
+
+              var feature = {
+                type: 'Feature',
+                properties: d,
+                geometry: g
+              }
+
+              featureCollection.features.push(feature);
+
+            }
+          });
+
+          console.log("featureCollection", featureCollection);
+
+          this.addData(featureCollection);
 //          this.fire('loaded', {layer: this});
         }, this),
         errorHandler = L.Util.bind(function() {
