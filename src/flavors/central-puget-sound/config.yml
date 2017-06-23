@@ -79,7 +79,6 @@ map:
     #   transparent: false
     #   format: image/png
 
-
     - id: 1936aerial
       type: wmts
       url: http://gismaps.kingcounty.gov/arcgis/rest/services/BaseMaps/KingCo_Aerial_1936/MapServer/WMTS?

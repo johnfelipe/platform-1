@@ -47,6 +47,12 @@
   .content-expanded-mid #main-btns-container {
     display: none !important;
   }
+
+  .compare-btn-container-nav {
+    float: left;
+    font-size: 0.875em;
+    margin-top: 5px;
+  }
 }
 
 /* =Header bar add report button

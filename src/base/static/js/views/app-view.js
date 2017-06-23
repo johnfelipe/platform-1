@@ -37,7 +37,7 @@ Shareabouts.smallSpinnerOptions = {
 module.exports = Backbone.View.extend({
   events: {
     "click #add-place": "onClickAddPlaceBtn",
-    "click #compare-btn-container": "onClickCompareLayers",
+    "click #compare-layer-btn": "onClickCompareLayers",
     "click .close-btn": "onClickClosePanelBtn",
     "click .maximize-btn": "onClickMaximizeBtn",
     "click .minimize-btn": "onClickMinimizeBtn",
@@ -46,19 +46,25 @@ module.exports = Backbone.View.extend({
   },
 
   onClickCompareLayers: function() {
+    if (!this.isComparingLayers) {
+      $(Shareabouts).trigger("visibility", ["topo", false]);
+      $(Shareabouts).trigger("visibility", ["1936aerial", true]);
+      $(Shareabouts).trigger("visibility", ["satellite", true]);
 
-    var myLayer1 = this.mapView.layers["satellite"].addTo(this.mapView.map);
-     
-    var myLayer2 = this.mapView.layers["1936aerial"].addTo(this.mapView.map)
-     
-    L.control.sideBySide(myLayer2, myLayer1).addTo(this.mapView.map);
+      var layerA = this.mapView.layers["1936aerial"].addTo(this.mapView.map),
+          layerB = this.mapView.layers["satellite"].addTo(this.mapView.map);
+       
+      L.control.sideBySide(layerA, layerB).addTo(this.mapView.map);
 
+      this.isComparingLayers = true;
+    }
   },
-
 
   initialize: function() {
     // store promises returned from collection fetches
     Shareabouts.deferredCollections = [];
+
+    this.isComparingLayers = false;
 
     var self = this,
         // Only include submissions if the list view is enabled (anything but false)
