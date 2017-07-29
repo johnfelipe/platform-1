@@ -29,7 +29,8 @@ urlpatterns = staticfiles_urlpatterns() + patterns('',
 )
 
 from django.conf import settings
-if settings.SHAREABOUTS['DATASET_ROOT'].startswith('/'):
+# TODO
+if settings.SHAREABOUTS[settings.SHAREABOUTS['FLAVORS'].split(',')[0].upper() + '_DATASET_ROOT'].startswith('/'):
     urlpatterns = patterns('',
         url(r'^full-api/', include('sa_api_v2.urls')),
     ) + urlpatterns

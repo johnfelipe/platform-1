@@ -48,7 +48,7 @@ REST_FRAMEWORK = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = os.environ.get('TIME_ZONE', 'America/New_York')
+TIME_ZONE = env.get('TIME_ZONE', 'America/New_York')
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -251,32 +251,19 @@ if all([key in env for key in ('SHAREABOUTS_AWS_KEY',
 # folder in the root of the src tree that contains all the configuration
 # information for the flavor.
 SHAREABOUTS = {
-    'FLAVOR': os.environ.get('FLAVOR', 'duwamish_flavor'),
-    'DATASET_ROOT': os.environ.get('SITE_URL', 'NO_SITE_URL'),
-    'DATASET_KEY': os.environ.get('SITE_KEY', 'NO_SITE_KEY')
+    'FLAVORS': env.get('FLAVORS', 'duwamish_flavor'),
+    'FLAVOR_HOSTS': env.get('FLAVOR_HOSTS', 'localhost')
 }
 
-# TODO: Remove this as it's not needed/used:
-if 'SHAREABOUTS_FLAVOR' in env:
-    SHAREABOUTS['FLAVOR'] = env.get('SHAREABOUTS_FLAVOR')
-if 'SHAREABOUTS_DATASET_ROOT' in env:
-    SHAREABOUTS['DATASET_ROOT'] = env.get('SHAREABOUTS_DATASET_ROOT')
-if 'SHAREABOUTS_DATASET_KEY' in env:
-    SHAREABOUTS['DATASET_KEY'] = env.get('SHAREABOUTS_DATASET_KEY')
-
 # Using print function for logging because handlers are not set in settings.py
-if 'FLAVOR' not in os.environ:
-    print("INFO: Using default flavor")
-if 'SITE_URL' not in os.environ:
-    print("ERROR: No SITE_URL found!")
-if 'SITE_KEY' not in os.environ:
-    print("ERROR: No SITE_KEY found!")
+if 'FLAVORS' not in env:
+    print("INFO: Using default flavors")
 
 # programatically add environment variables of type *_SITE_URL and
 # *_DATASET_KEY
-for k in os.environ:
-    if re.match('.+_DATASET_KEY$|.+_SITE_URL$', k):
-        SHAREABOUTS[k] = os.environ.get(k, 'Error')
+for k in env:
+    if re.match('.+_SITE_KEY$|.+_DATASET_KEY$|.+_SITE_URL$', k):
+        SHAREABOUTS[k] = env.get(k, 'Error')
 
 # ---------------
 # By default, the flavor is assumed to be a local python package.  If no
@@ -284,19 +271,21 @@ for k in os.environ:
 
 try:
     # SHAREABOUTS
-    flavor = SHAREABOUTS['FLAVOR']
+    flavors = SHAREABOUTS['FLAVORS'].split(',')
 except (NameError, TypeError, KeyError):
     from django.core.exceptions import ImproperlyConfigured
     raise ImproperlyConfigured('No SHAREABOUTS configuration defined. '
                                'Did you forget to copy the local settings '
                                'template?')
 
-if 'CONFIG' not in SHAREABOUTS:
-    SHAREABOUTS['CONFIG'] = os.path.abspath(os.path.join(HERE, '..',
-                                                         'flavors', flavor))
-if 'PACKAGE' not in SHAREABOUTS:
-    SHAREABOUTS['PACKAGE'] = '.'.join(['flavors', flavor])
-    INSTALLED_APPS = (SHAREABOUTS['PACKAGE'],) + INSTALLED_APPS
+for flavor in flavors:
+    prefix = flavor.upper().replace('-', '_')
+    SHAREABOUTS[prefix + '_DATASET_ROOT'] = env.get(prefix + '_SITE_URL')
+    SHAREABOUTS[prefix+ '_DATASET_KEY'] = env.get(prefix + '_SITE_KEY')
+    SHAREABOUTS[prefix + '_CONFIG'] = os.path.abspath(os.path.join(HERE, '..',
+                                                     'flavors', flavor))
+    SHAREABOUTS[prefix + '_PACKAGE'] = '.'.join(['flavors', flavor])
+    INSTALLED_APPS = (SHAREABOUTS[prefix + '_PACKAGE'],) + INSTALLED_APPS
 
 ##############################################################################
 # Auth settings
@@ -351,15 +340,13 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 # Additional locations of static files
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    str(os.path.abspath(os.path.join(HERE,
+STATICFILES_DIRS = ()
+
+for flavor in flavors:
+    STATICFILES_DIRS = (str(os.path.abspath(os.path.join(HERE,
                                      '..',
                                      'flavors',
-                                     flavor + "/static"))),
-)
+                                     flavor + "/static"))),) + STATICFILES_DIRS
 
 ##############################################################################
 # analytics
@@ -409,7 +396,8 @@ LOCALE_PATHS = (
     os.path.join(HERE, '..', 'flavors', flavor, 'locale'),
 )
 
-if SHAREABOUTS['DATASET_ROOT'].startswith('/'):
+# TODO
+if SHAREABOUTS[flavors[0].upper() + '_DATASET_ROOT'].startswith('/'):
     INSTALLED_APPS += (
         # =================================
         # 3rd-party reusaple apps

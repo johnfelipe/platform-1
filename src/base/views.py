@@ -61,12 +61,18 @@ class ShareaboutsApi (object):
 
 @ensure_csrf_cookie
 def index(request, place_id=None):
+    hosts = settings.SHAREABOUTS.get('FLAVOR_HOSTS').split(',')
+    host_index = hosts.index(request.get_host().split(":")[0])
+    flavor = settings.SHAREABOUTS.get('FLAVORS').split(',')[host_index]
+    print(flavor)
+
     # Load app config settings
-    config = get_shareabouts_config(settings.SHAREABOUTS.get('CONFIG'))
+    prefix = flavor.upper().replace('-', '_')
+    config = get_shareabouts_config(settings.SHAREABOUTS.get(prefix + '_CONFIG'))
     config.update(settings.SHAREABOUTS.get('CONTEXT', {}))
 
     # Get initial data for bootstrapping into the page.
-    dataset_root = settings.SHAREABOUTS.get('DATASET_ROOT')
+    dataset_root = settings.SHAREABOUTS.get(prefix + '_DATASET_ROOT')
     if (dataset_root.startswith('file:')):
         dataset_root = request.build_absolute_uri(reverse('api_proxy', args=('',)))
     api = ShareaboutsApi(dataset_root=dataset_root)
