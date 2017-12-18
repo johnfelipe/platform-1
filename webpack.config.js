@@ -54,10 +54,23 @@ for (var i = 0; i < baseViewPaths.length; i++) {
     alias[aliasName] = baseViewPath;
   }
 }
+const isProd = process.env.NODE_ENV === "production"
 
 var outputBasePath = path.resolve(__dirname, "www");
-const extractSCSS = new ExtractTextPlugin((process.env.NODE_ENV === "production") ? "[contenthash].bundle.css" : "bundle.css");
+const extractSCSS = new ExtractTextPlugin((isProd) ? "[contenthash].bundle.css" : "bundle.css");
 const extractYML = new ExtractTextPlugin("config-en_US.js");
+
+let plugins = [
+  extractSCSS,
+  new CompressionPlugin({
+    asset: "[path].gz[query]"
+  }),
+  extractYML,
+]
+
+if (isProd) {
+  plugins.push(new webpack.optimize.UglifyJsPlugin({minimize: true}))
+}
 
 module.exports = {
   entry: entryPoints,
@@ -92,14 +105,7 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    extractSCSS,
-    new CompressionPlugin({
-      asset: "[path].gz[query]"
-    }),
-    extractYML,
-    new webpack.optimize.UglifyJsPlugin({minimize: true})
-  ],
+  plugins: plugins,
   devServer: {
     contentBase: outputBasePath,
     historyApiFallback: {
