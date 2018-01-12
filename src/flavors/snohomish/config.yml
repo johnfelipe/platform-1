@@ -705,21 +705,21 @@ pages:
   #   slug: getinvolved
   #   name: contribute
 
-# story:
-  # example:
-  #   tagline: _(Next featured site)
-  #   default_zoom: 18
-  #   default_visible_layers:
-  #     - satellite
-  #   order:
-      # - url: dirtcorps
-      #   zoom: 15
-      #   panTo:
-      #     lat: 47.53420
-      #     lng: -122.32165
-      #   spotlight: false
-      #   visible_layers:
-      #     - dirt-corps
+story:
+  default:
+    tagline: _(Next featured site)
+    # every story item will default to the zoom level and visible
+    # layers defined below. If a story element defines a different 
+    # zoom level and/or visible layers, it will use those wholesale 
+    # (that is, no default settings will be inherited).
+    default_zoom: 18
+    default_visible_layers:
+      - snohomish-featured
+    order: 
+      - url: quick-test
+        basemap: satellite
+      - url: another-test
+        basemap: satellite
 
 # cluster:
 #   animate: true
