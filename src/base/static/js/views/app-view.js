@@ -21,6 +21,7 @@ import FormCategoryMenuWrapper from "../../components/input-form/form-category-m
 import GeocodeAddressBar from "../../components/geocode-address-bar";
 import InfoModal from "../../components/organisms/info-modal";
 import RightSidebar from "../../components/templates/right-sidebar";
+import PlaceList from "../../components/organisms/place-list";
 
 // TODO(luke): move this into index.js (currently routes.js)
 const store = createStore(reducer);
@@ -32,7 +33,7 @@ var Util = require("../utils.js");
 var MapView = require("mapseed-map-view");
 var PagesNavView = require("mapseed-pages-nav-view");
 var AuthNavView = require("mapseed-auth-nav-view");
-var PlaceListView = require("mapseed-place-list-view");
+// var PlaceListView = require("mapseed-place-list-view");
 var SidebarView = require("mapseed-sidebar-view");
 var ActivityView = require("mapseed-activity-view");
 var PlaceCounterView = require("mapseed-place-counter-view");
@@ -325,11 +326,22 @@ module.exports = Backbone.View.extend({
       _.isUndefined(this.options.appConfig.list_enabled) ||
       this.options.appConfig.list_enabled
     ) {
-      this.listView = new PlaceListView({
-        el: "#list-container",
-        placeCollections: self.places,
-        placeConfig: this.options.placeConfig,
-      }).render();
+      // this.listView = new PlaceListView({
+      //   el: "#list-container",
+      //   placeCollections: self.places,
+      //   placeConfig: this.options.placeConfig,
+      // }).render();
+
+      ReactDOM.render(
+        <Provider store={store}>
+          <PlaceList
+            mapView={this.mapView}
+            router={this.options.router}
+            placeCollections={self.places}
+          />
+        </Provider>,
+        document.getElementById("info-modal-container"),
+      );
     }
 
     // Cache panel elements that we use a lot
@@ -949,6 +961,10 @@ module.exports = Backbone.View.extend({
     // Re-sort if new places have come in
     this.listView.sort();
     // Show
+    // TODO(luke): move this logic our PlaceList and Map components.
+    // eg: this.isListViewEnabled = true
+    // Eventual solution is to port AppView into an App component
+    // and use react-router to handle our navigation
     this.listView.$el.addClass("is-exposed");
     $(".show-the-list").addClass("is-visuallyhidden");
     $(".show-the-map").removeClass("is-visuallyhidden");
