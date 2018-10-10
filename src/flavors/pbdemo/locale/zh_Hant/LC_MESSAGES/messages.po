@@ -1,0 +1,517 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-07 15:31-0700\n"
+"PO-Revision-Date: 2017-03-30 05:43+0000\n"
+"Last-Translator: Language-Team: Chinese Traditional (https://www.transifex."
+"com/mapseed/teams/58669/zh-Hant/)\n"
+"Language-Team: Traditional Chinese\n"
+"Language: zh-Hant\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"X-Loco-Source-Locale: en_US\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Generator: Loco - https://localise.biz/\n"
+
+msgid ""
+"Welcome! Participatory Budgeting Oakland is an innovative democratic process "
+"that gives Oakland residents in City Council Districts 1 and 2 the power to "
+"decide how to spend city funds in their district. Help us vote now!"
+msgstr ""
+"歡迎！參與奧克蘭預算編制是一項創新的民主流程，為奧克蘭城市委員會第2區的居民提"
+"供決定他們所在地區如何花費城市資金的權力。現在請幫我們投票吧！"
+
+msgid "idea for community programs and services"
+msgstr "對老年人服務的看法"
+
+msgid "idea for parks and recreation"
+msgstr "對公園和娛樂設施的看法"
+
+msgid "idea for streets and sidewalks"
+msgstr "對街道和人行道的看法"
+
+msgid "idea for housing and jobs"
+msgstr "住房和工作"
+
+msgid "Map Layers:"
+msgstr "地圖圖層："
+
+msgid "OpenStreetMap"
+msgstr "OpenStreetMap"
+
+msgid "Satellite View"
+msgstr "衛星視圖"
+
+msgid "Dark"
+msgstr "黑"
+
+msgid "Community Data"
+msgstr "社區資料"
+
+msgid "Community Reports"
+msgstr "社區報告"
+
+msgid "Oakland districts"
+msgstr "奧克蘭地區"
+
+msgid "Community ideas:"
+msgstr "社區看法："
+
+msgid "Community Programs and Services"
+msgstr "社區專案和服務"
+
+msgid "Parks and recreation"
+msgstr "公園和娛樂設施"
+
+msgid "Streets and sidewalks"
+msgstr "街道和人行道"
+
+msgid "Housing and Jobs"
+msgstr "住房和工作"
+
+msgid "Share your idea!"
+msgstr "分享您的看法！"
+
+msgid "Show the Map"
+msgstr "顯示地圖"
+
+msgid "suggested"
+msgstr "建議"
+
+#, fuzzy
+msgid "Submit"
+msgstr "提交！"
+
+msgid "Title of your idea:"
+msgstr "您的意見標題"
+
+msgid " "
+msgstr " "
+
+msgid "Tell us more about your idea to improve our neighborhood?:"
+msgstr "告訴我們更多關於您對改善鄰居關係的看法？："
+
+msgid ""
+"Ideas must be for a program, service, or infrastructure improvement "
+"benefiting low-to-moderate income communities in the district."
+msgstr "看法必須針對社區內中低收入社區能受益的專案、服務或基礎設施改善。"
+
+msgid "Why is this important? What need in the community does this serve?:"
+msgstr "為什麼這很重要？該服務是社區裡需要的嗎？"
+
+msgid "Parks and Recreation"
+msgstr "公園和娛樂設施"
+
+msgid "Streets and Sidewalk"
+msgstr "街道和人行道"
+
+msgid "(For administrator use only)"
+msgstr ""
+
+#, fuzzy
+msgid "Submitted at:"
+msgstr "提交！"
+
+msgid "Williams Chapel"
+msgstr ""
+
+msgid "Beebe Memorial Cathedral"
+msgstr ""
+
+msgid "Mobile Assembly at Bella Vista Elementary School"
+msgstr ""
+
+msgid "Other"
+msgstr "其他"
+
+msgid "Image"
+msgstr "圖片"
+
+msgid "Demographic information"
+msgstr "人口統計學資訊"
+
+msgid ""
+"This info is kept private, and is to ensure we are serving a diversity of "
+"people who best represent the needs of the community."
+msgstr "該資訊保密，確保我們為各種最能代表社區需要的人群服務。"
+
+msgid "Your age:"
+msgstr "您的年齡："
+
+msgid "Your age will not appear on the map"
+msgstr "您的年齡不會出現在地圖上"
+
+msgid "Your ethnicity will not appear on the map"
+msgstr "您的名族不會出現在地圖上"
+
+msgid "Ethnicity:"
+msgstr "民族："
+
+msgid "Asian"
+msgstr "亞洲人"
+
+msgid "Black or African American"
+msgstr "黑人或非裔美國人"
+
+msgid "Hispanic or Latino/a"
+msgstr "西班牙裔或拉丁裔美國人"
+
+msgid "Native Hawaiian or Pacific Islander"
+msgstr "夏威夷原住民和太平洋島居民"
+
+msgid "White"
+msgstr "白人"
+
+msgid "Your income:"
+msgstr "您的收入："
+
+msgid "Under $10,000"
+msgstr "$10,000以下"
+
+msgid "$10,000 - $14,999"
+msgstr "$10,000 - $14,999"
+
+msgid "$15,000 - $24,999"
+msgstr "$15,000 - $24,999"
+
+msgid "$25,000 - $34,999"
+msgstr "$25,000 - $34,999"
+
+msgid "$35,000 - $49,000"
+msgstr "$35,000 - $49,000"
+
+msgid "$50,000 - $74,999"
+msgstr "$50,000 - $74,999"
+
+msgid "$75,000 - $99,000"
+msgstr "$75,000 - $99,000"
+
+msgid "$100,000 - $149,000"
+msgstr "$100,000 - $149,000"
+
+msgid "$150,000 or more"
+msgstr "$150,000或更多"
+
+msgid "I want to volunteer:"
+msgstr "我想做志願者"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "否"
+
+msgid "Your name"
+msgstr "您的姓名"
+
+msgid "Your Email"
+msgstr "您的電子郵件"
+
+msgid "Your phone number:"
+msgstr "您的電話號碼："
+
+msgid "Your phone number will not appear on the map"
+msgstr "您的電話號碼不會出現在地圖上"
+
+msgid "Submit!"
+msgstr "提交！"
+
+msgid "comment"
+msgstr "評論"
+
+msgid "commented on"
+msgstr "評論"
+
+msgid "Leave a Comment"
+msgstr "發表評論"
+
+msgid "Comment"
+msgstr "評論"
+
+msgid "Your Name"
+msgstr "您的姓名"
+
+msgid "Support"
+msgstr "支援"
+
+msgid "supports"
+msgstr "支援"
+
+msgid "Someone"
+msgstr "某人"
+
+msgid "Guidelines"
+msgstr "指南"
+
+msgid "Get more involved"
+msgstr "積極參與此活動"
+
+msgid ""
+"Already submitted an idea? There are many more ways to get involved in "
+"participatory budgeting:"
+msgstr "已經提交了看法嗎？有很多方式可以參與預算編制活動："
+
+msgid "Volunteer"
+msgstr "志願者"
+
+msgid ""
+"You can help to get the word out to district residents, facilitate small "
+"group meetings, provide support at PB events, and more. Sign up <a href="
+"\"http://www.123contactform.com/form-2317799/PB-Oakland-Volunteer-Sign-Up\" "
+"target=\"_blank\">here</a>."
+msgstr ""
+"有很多方式可以參與奧克蘭的PB活動！您可以幫助把資訊傳遞給地區居民，促進小組會"
+"議舉行，為PB活動提供支援等。登記<a href=\"http://www.123contactform.com/"
+"form-2317799/PB-Oakland-Volunteer-Sign-Up\" target=\"_blank\">這裡</a>。"
+
+msgid "Contact Us"
+msgstr "聯絡我們"
+
+msgid "Have a question? Feel free to contact us."
+msgstr "有問題？請隨時聯絡我們。"
+
+msgid ""
+"<iframe src=\"http://www.123contactform.com/form-1169694/PB-Oakland-Contact-"
+"Us\" height=\"400\" width=100% </iframe>"
+msgstr ""
+
+msgid ""
+"\n"
+"<iframe src=\"https://player.vimeo.com/video/162743651?"
+"color=ff9933&byline=0\" width=\"640\" height=\"360\" frameborder=\"0\" "
+"webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n"
+msgstr ""
+"\n"
+"<iframe src=\"https://player.vimeo.com/video/84311420?"
+"color=ff9933&byline=0\" width=\"640\" height=\"360\" frameborder=\"0\" "
+"webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n"
+
+msgid ""
+"\n"
+"<h2>How does PB work in Oakland?</h2>\n"
+"<p>\n"
+"Participatory Budgeting (PB) is an innovative democratic process that gives "
+"Oakland residents of City Council Districts 1 and 2 the power to set "
+"priorities for how federal Community Development Block Grant (CDBG) funds "
+"should be spent to improve low-to-moderate income communities in their "
+"districts. The projects that receive the most votes up to the maximum dollar "
+"amount will become the CDBG priorities for the district. In December and "
+"January, residents came together at events in their districts and online to "
+"discuss community needs and brainstorm ideas for funded projects that would "
+"benefit low-to-moderate incomes communities. In early February, volunteer "
+"budget delegates evaluated and prioritized those ideas and turned them into "
+"the priority projects that will appear on the PB ballot from February 18-22, "
+"2017.\n"
+"</p>\n"
+"<p>\n"
+"Following the vote, the City of Oakland will release a Request for Proposals "
+"(RFP), and city and non-profit agencies may apply for funds to implement "
+"priority projects. Community Development District Board Members in Districts "
+"1 and 2 will review all applications in response to the RFP and make "
+"recommendations to the city on which should be funded. For more information "
+"on the RFP process, <a href=\"http://www2.oaklandnet.com/government/o/hcd/s/"
+"CDBG/index.htm\">visit the City of Oakland's CDBG website</a>.\n"
+"</p>\n"
+"<p>\n"
+"<strong>In Council District 1</strong>, the 2017-19 CDBG allocation is "
+"$113,654 per year over two years, or $227,308 in total. For a map of the "
+"CDBG eligible area, <a href=\"http://www2.oaklandnet.com/oakca1/groups/ceda/"
+"documents/webcontent/dowd009136.pdf\">click here</a>.\n"
+"</p>\n"
+"<p>\n"
+"<strong>In Council District 2</strong>, the 2017-19 CDBG allocation is "
+"$278,685 per year over two years, or $557,370 in total. For a map of the "
+"CDBG eligible area, <a href=\"http://www2.oaklandnet.com/oakca1/groups/ceda/"
+"documents/webcontent/dowd009137.pdf\">click here</a>.\n"
+"</p>\n"
+"<p>\n"
+"Not sure if you live in District 1 or 2? Enter your address on <a href="
+"\"https://participatorybudgeting.nationbuilder.com/r?u=http%3A%2F%2Fmapgis."
+"oaklandnet.com%2Fcouncildistricts"
+"%2F&e=1860e7904dcd651a71dfc072d7cae68cb859e106&utm_source=participatorybudgeting&utm_medium=email&utm_campaign=oakd1vote&n=7&test_email=1\">this "
+"map</a> to find out.\n"
+"</p>\n"
+"<em><strong>\n"
+"For a full description of the PB process in Oakland, download the <a href="
+"\"https://drive.google.com/file/d/0B8FaQ6MQKJm1U0xQSVNUQ1ZEZk0/view?"
+"usp=sharing\">PB Oakland 2016-17 Rulebook</a>.\n"
+"</em>\n"
+"</strong>\n"
+msgstr ""
+"\n"
+"<h2>屋崙參與式預算制定究竟如何運作？</h2>\n"
+"<p>\n"
+"參與式預算制定(PB) 是一項富於革新精神的民主進程，它授權屋崙市議會第一和第二選"
+"區的居民就聯邦社區發展綜合補助金(CDBG)應如何使用訂立優先順序，用以改善他們區"
+"内低至中等收入的社區。 第二區2017-19年的社區發展綜合補助金（ CDBG）每年撥款"
+"$278,685 ，為期兩年，亦即總金額$557,370。那些獲選票最多的項目，算至撥款金額完"
+"盡為止，將成為本區社區發展綜合補助金的優先項目。屋崙市政府將發佈一項「提交建"
+"議書邀請」(RFP)，然後，市及非牟利機構可以申請撥款來貫徹那些優先項目。社區發展"
+"區委員會的委員將審查所有回應「提交建議書邀請」的申請書，並向市府建議哪些申請"
+"應獲撥款。\n"
+"</p>\n"
+
+msgid "Participatory Budgeting Oakland"
+msgstr "參與奧克蘭預算編制"
+
+msgid ""
+"is an innovative democratic process that gives Oakland residents of City "
+"Council Districts 1 and 2 the power to set priorities for how federal "
+"Community Development Block Grant (CDBG) funds should be spent to improve "
+"low-to-moderate income communities in their district."
+msgstr ""
+"是一項創新的民主流程，為奧克蘭城市委員會第1區和第2區的居民提供權力，來決定聯"
+"邦社區發展整體補助(CDBG)基金應該如何用於改善他們所在地區的中低收入社區。"
+
+msgid ""
+"\n"
+"<a href=\"http://www2.oaklandnet.com/oakca1/groups/ceda/documents/policy/"
+"oak062978.pdf\"><h2>The results are in!</h2></a>\n"
+"<strong><em>You made it happen: here are your PB Oakland priorities winners</"
+"em></strong>\n"
+msgstr ""
+"\n"
+"<a href=\"http://www2.oaklandnet.com/oakca1/groups/ceda/documents/policy/"
+"oak062978.pdf\"><h2>投票有了結果！</h2></a>\n"
+"<strong><em>全靠有你：這就是你的屋崙參與式預算制定（Oakland PB）優先撥款的勝"
+"出項目</em></strong>\n"
+
+msgid ""
+"\n"
+"<p>\n"
+"We are excited to share that the first ever PB Oakland process is complete!\n"
+"</p>\n"
+"<p>\n"
+"Over 1,200 community members voted in PB Oakland to help decide how to spend "
+"$784,678 over 2 years to benefit low-and moderate-income residents in "
+"Oakland Council Districts 1 and 2!\n"
+"</p>\n"
+"<p>\n"
+"Thank you to everyone who participated in the first ever PB Oakland process! "
+"You are helping to deepen democracy and build stronger communities through "
+"PB during a time when we all need it the most.\n"
+"</p>\n"
+"<p>\n"
+"Special thanks to the Community Development District Board Members, District "
+"1 and 2 Staff, the Budget Delegates, our outreach partners: Asian Pacific "
+"Environmental Network (APEN) and Oakland Rising, and all the volunteers and "
+"participants! This process has been administered by the City of Oakland "
+"Housing & Community Development Department with support from the "
+"Participatory Budgeting Project and supported by generous grants from The "
+"California Endowment and the Akonadi Foundation.​\n"
+"</p>\n"
+"<p>\n"
+"The full list of winning priority projects can be found here: <a href="
+"\"http://www2.oaklandnet.com/oakca1/groups/ceda/documents/policy/oak062978."
+"pdf\">CD1 and CD2 Funding Priorities</a>. The city of Oakland is currently "
+"conducting a Request for Proposals (RFP) process in which the Community "
+"Development District Boards will make funding recommendations in April. For "
+"more information on the RFP process, <a href=\"http://www2.oaklandnet.com/"
+"government/o/hcd/s/CDBG/index.htm\">click here</a>.\n"
+"</p>\n"
+"<p>\n"
+"P.S. If there was an idea you were rooting for that didn’t win, don’t worry! "
+"All of the ideas submitted during the process will be shared with both "
+"District Boards and Council Office staff for future consideration.\n"
+"</p>\n"
+msgstr ""
+"\n"
+"<p>\n"
+"我們好興奮和大家分享這次屋崙參與式預算制定（Oakland PB）史無前例的進程已經大"
+"功告成！\n"
+"</p>\n"
+"<p>\n"
+"超過 1, 200位社區人士於屋崙參與式預算制定（Oakland PB）的選舉投了票，藉此幫助"
+"決定如何於兩年之内花費 $784,678讓屋崙市議會第一及第二選區的中、低收入居民受"
+"惠！\n"
+"</p>\n"
+"<p>\n"
+"感謝參與過今次屋崙參與式預算制定（Oakland PB）史無前例進程的每一位人士！你們"
+"幫助深化了民主，並且經由參與式預算制定（PB）建立更強健的社區，而這正是我們所"
+"有人對此最需要的時候。 \n"
+"</p>\n"
+"<p>\n"
+"特別鳴謝「社區發展區委員會」各委員、第二區及第二區職工、各預算代表、我們的外"
+"展合作伙伴：亞太環保網絡(APEN)和屋崙升起(Oakland Rising)，以及所有義工和參與"
+"者！這個進程一直由屋崙市房屋及社區發展部行政主理、「參與式預算制定項目」給與"
+"支援，並且得到加州傳統基金會（The California Endowment）和阿肯納迪基金會"
+"（The Akonadi Foundation）慷慨補助金的支持\n"
+"</p>\n"
+"<p>\n"
+"勝出優先項目的完整清單可以在這裡找到： <a href=\"http://www2.oaklandnet.com/"
+"oakca1/groups/ceda/documents/policy/oak062978.pdf\">CD1 and CD2 Funding "
+"Priorities</a>. 屋崙市政府刻下正在進行一項「邀請提交建議書」(RFP)程序；社區發"
+"展區委員會將於四月作出撥款建議。想得知更多有關「邀請提交建議書」程序的資訊，"
+"請 <a href=\"http://www2.oaklandnet.com/government/o/hcd/s/CDBG/index.htm\">"
+"按這裡</a>。\n"
+"</p>\n"
+"<p>\n"
+"附記：如果你支持的一個主意未能勝出，請不要擔心！ 所有於過程提交過的主意將會同"
+"時跟兩區的區委員會以及市議會區辦公室的職員分享，以便將來得到考慮。\n"
+"</p>\n"
+
+msgid ""
+"For more information on the City of Oakland’s Community Development Block "
+"Grant (CDBG) program, <a href=\"http://www2.oaklandnet.com/government/o/hcd/"
+"s/CDBG/index.htm\" target=”_blank”>click here</a>."
+msgstr ""
+"有關奧克蘭城市社區發展整體補助(CDBG)專案的更多資訊，請點擊<a href=\"http://"
+"www2.oaklandnet.com/government/o/hcd/s/CDBG/index.htm\" target=”_blank”>這裡"
+"</a>。"
+
+msgid ""
+"For information on participatory budgeting in the U.S. and Canada, visit the "
+"website of the <a href=\"http://www.participatorybudgeting.org/\" "
+"target=”_blank”>Participatory Budgeting Project</a>."
+msgstr ""
+"有關參與美國和加拿大預算編制的資訊，請訪問<a href=\"http://www."
+"participatorybudgeting.org/\" target=”_blank”>參與預算編制項目</a>的網站。"
+
+msgid "Explore the map!"
+msgstr "探索地圖！"
+
+#~ msgid "support"
+#~ msgstr "支援"
+
+#~ msgid "comments"
+#~ msgstr "評論"
+
+#~ msgid "Tell us more..."
+#~ msgstr "告訴我們更多..."
+
+#~ msgid "Title:"
+#~ msgstr "標題："
+
+#, fuzzy
+#~ msgid "Venue name:"
+#~ msgstr "您的姓名"
+
+#~ msgid "Add an Image"
+#~ msgstr "添加圖片"
+
+#~ msgid "Your ethnicity:"
+#~ msgstr "您的民族："
+
+#~ msgid "American Indian/Alaskan Native"
+#~ msgstr "美國印第安人/阿拉斯加原住民"
+
+#~ msgid "Your income will not appear on the map"
+#~ msgstr "您的收入不會出現在地圖上"
+
+#~ msgid "Name"
+#~ msgstr "姓名"
+
+#~ msgid "Receive email updates on your idea"
+#~ msgstr "收到關於您的看法的電子郵件更新"
+
+#~ msgid "See full list"
+#~ msgstr "查看完整列表"
+
+#~ msgid "About"
+#~ msgstr "關於"
+
+#~ msgid "Powered by"
+#~ msgstr "技術支援"
