@@ -142,7 +142,7 @@ map:
         - id: palouse-critical-convervation-areas
           type: "fill"
           paint:
-            "fill-color": "#ff1a1a"
+            "fill-color": "#009933"
             "fill-opacity": 0.7
 
     - id: palouse-frequently-flooded
@@ -154,7 +154,7 @@ map:
         - id: palouse-frequently-flooded
           type: "fill"
           paint:
-            "fill-color": "#ff1a1a"
+            "fill-color": "#3366ff"
             "fill-opacity": 0.7
 
     - id: palouse-huc-12
@@ -172,7 +172,7 @@ map:
         - id: palouse-wetlands
           type: "fill"
           paint:
-            "fill-color": "#ff1a1a"
+            "fill-color": "#66ffcc"
             "fill-opacity": 0.7
 
     - id: palouse-geologic-hazard
@@ -189,7 +189,7 @@ map:
               - "erosion_of"
             - "Severe"
           paint:
-            "fill-color": "#ff1a1a"
+            "fill-color": "#ff9900"
             "fill-opacity": 0.7
 
     - id: whitman-county-outline
